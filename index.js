@@ -7,6 +7,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 const carRouter = require("./routes/carRoutes");
 const userRouter = require("./routes/userRoutes");
+const rentalRouter = require("./routes/rentalRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,6 +25,8 @@ app.get("/", (req, res) => res.send("API working"));
 
 // app routes
 app.use("/api/v1/car", carRouter);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/order", rentalRouter);
 
 // listener
 app.listen(PORT, () => console.log(`server running on port ${PORT}`.red));
